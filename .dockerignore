@@ -1,0 +1,22 @@
+# Ignore virtual environment
+fast_env/
+venv/
+env/
+*.env
+*.env*
+env.*
+
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+
+# Ignore Data Folder
+data/
+
+# Ignore notebooks
+notebooks/
