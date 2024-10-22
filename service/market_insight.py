@@ -65,7 +65,7 @@ class MarketInsightService():
     def __get_top_n_importer(self, data:pd.DataFrame, n:int=5) -> List[str]:
         group_data = data[["reporterDesc", "netWgt", "primaryValue"]].groupby("reporterDesc").sum().sort_values('netWgt', ascending=False)
         
-        if (len(group_data > n)):
+        if (len(group_data)>n):
             top_n_importer = group_data.iloc[:n].index.to_list()
         else:
             top_n_importer = group_data.index.to_list()
@@ -120,4 +120,8 @@ class MarketInsightService():
 
         # return the insight
         print("return the insight")
-        return top_n_importers_data
+        insight = {
+            "HS Code": cmd_code,
+            "insight": top_n_importers_data
+        }
+        return insight
